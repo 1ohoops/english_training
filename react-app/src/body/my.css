@@ -1,0 +1,354 @@
+@keyframes my_show{
+  from{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.my{
+  transform: translateX(50%);
+  padding: 0.02rem;
+  width: 100%;
+  height: 100%;
+  animation: my_show 1s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.my_title{
+  font-weight: 700;
+  font-size: 0.03rem;
+  margin: 0.03rem;
+  font-style: italic;
+  border-bottom: 1px solid #555555;
+}
+
+.my_title span:nth-of-type(1){
+  color:#555555;
+  margin-right: 0.01rem;
+}
+
+.my_title span:nth-of-type(2){
+  color: #daa520;
+}
+
+.my_main{
+  padding: 0.02rem 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.my_items{
+  flex: 1;
+  height: 100%;
+  margin: 0 0.02rem;
+  color:#555555;
+  padding: 0.01rem;
+  border-radius: 0.008rem;
+  box-shadow: 0.003rem 0.003rem 0.003rem#555555,
+  0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.my_items > div:nth-last-of-type(n + 2){
+  width: 100%;
+  margin: 0.01rem 0;
+  font-size: 0.012rem;
+  font-weight: 600;
+  border-bottom: 1px solid #555555;
+  cursor: pointer;
+  position: relative;
+}
+
+.my_items > div:nth-last-of-type(n + 2)::after{
+  content: '>';
+  position: absolute;
+  right: 0;
+}
+
+.my_items > div:nth-last-of-type(n + 2):active{
+  color: #daa520;
+}
+
+.my_item_board{
+  border-radius: 0.008rem;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  padding: 0.01rem;
+  transition: transform 1s;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.my_item_board_show{
+  top: 0;
+  transform: translateX(100%);
+}
+
+.my_item_board > div:nth-of-type(1){
+  font-size: 0.015rem;
+  display: inline-block;
+  width: 0.025rem;
+  height: 0.025rem;
+  line-height: 0.02rem;
+  vertical-align: top;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.my_item_board > div:nth-of-type(1):active{
+  color: #daa520;
+}
+
+.my_item_board_container{
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.my_item_board_container_chosed{
+  overflow: hidden;
+}
+
+/*-----------------------*/
+
+.word_message_board{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 100%;
+  display: flex;
+  transition: top 0.3s;
+  background: white;
+}
+
+.word_message_board.word_message_board_show{
+  top: 0;
+}
+
+.word_message_board > div{
+  text-align: center;
+}
+
+.word_message_board > div >div{
+  font-size: 0.014rem;
+  margin-top: 0.02rem;
+}
+
+.word{
+  flex: 1.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.word > div > div{
+  margin-bottom: 0.01rem;
+}
+
+.word_img{
+  flex: 1;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word_img img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.word_sentence{
+  flex: 2.5;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.word_sentence > div > div{
+  margin-bottom: 0.01rem;
+}
+
+.sentence_img{
+  flex: 1;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sentence_img img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*-----------------------*/
+
+.books_item{
+  display: inline-block;
+  width: 0.07rem;
+  height: 0.1rem;
+  margin: 0.02rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+  background: rgb(105, 148, 212);
+  position: relative;
+  text-align: center;
+  color: white;
+  line-height: 0.1rem;
+}
+
+.books_item::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -7%;
+  left: 10%;
+  box-sizing: border-box;
+  border-top: 0.002rem solid rgb(105, 148, 212);
+  border-right: 0.002rem solid rgb(105, 148, 212);
+  background: transparent;
+}
+
+.books_item::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: calc(10% + 0.002rem);
+  height: 100%;
+  top: -7%;
+  left: 0;
+  border-left: 0.002rem solid rgb(105, 148, 212);
+  border-top: 0.002rem solid rgb(105, 148, 212);
+  border-top-left-radius: 1rem;
+  background: transparent;
+}
+
+.books_item > div{
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+}
+
+@keyframes books_item_choose_others{
+  from{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.books_item_choose_show > div:nth-of-type(2) > div.books_item:not(.books_item_choose){
+  opacity: 0;
+}
+
+.books_item_main{
+  position: absolute;
+  right: -100%;
+  top: 0;
+  width: calc(100% - 0.11rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes books_item_main{
+  from{
+    right: -100%;
+  }
+  to{
+    right: 0;
+  }
+}
+
+.books_item_choose_show .books_item_main{
+  animation: books_item_main 0.5s ease-in-out forwards;
+}
+
+.words_item{
+  background-color: rgba(243, 243, 243, 0.7);
+  font-size: 0.012rem;
+  margin: 0.01rem 0.02rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.books_item_main_title{
+  display: flex;
+  padding: 0.005rem;
+  position: relative;
+}
+
+.books_item_main_title::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #daa520;
+  transition: transform 0.2s;
+  
+}
+
+.right.books_item_main_title::after{
+  transform: translateX(100%) !important;
+}
+
+.books_item_main_title div{
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.books_item_main_words{
+  overflow: auto;
+  flex: 1;
+}
+
+.books_item_main_word{
+  background-color: rgba(243, 243, 243, 0.7);
+  font-size: 0.012rem;
+  margin: 0.01rem 0.02rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.break_out_btn{
+  position: absolute !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0.02rem auto;
+}

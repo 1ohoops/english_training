@@ -1,0 +1,461 @@
+@keyframes words_show{
+  from{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.words{
+  padding: 0.02rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(50%);
+  animation: words_show 1s ease-in-out forwards;
+}
+
+@keyframes items_show{
+  from{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.show {
+  animation: items_show 0.5s ease-in-out forwards;
+}
+
+@keyframes items_leave{
+  from{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+.leave {
+  animation: items_leave 0.5s ease-in-out forwards;
+}
+
+.books_top{
+  position: relative;
+}
+
+.book_name , .other_books{
+  width: calc(50% - 0.06rem);
+  height: 0.15rem;
+  display: inline-block;
+  margin: 0.03rem;
+  border-radius: 0.015rem;
+  box-shadow: 
+  0.001rem 0.002rem 0.005rem rgb(214, 214, 214);
+  vertical-align: middle;
+}
+
+.book_name{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.02rem 0.02rem; 
+  position: relative;
+  background-color: rgba(243, 243, 243, 0.7);
+}
+
+.book_name > div:nth-of-type(1){
+  font-size: 0.025rem;
+  font-weight: 700;
+  color: #c48c00;
+}
+
+/*-------------------*/
+
+.day_target_left{
+  font-size: 0.015rem;
+  font-weight: 500;
+  color: rgb(104, 99, 99);
+  float: left;
+}
+
+.day_target_right{
+  font-size: 0.015rem;
+  font-weight: 500;
+  color: rgb(104, 99, 99);
+  float: right;
+}
+
+.day_target_righr_right{
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0.005rem;
+  cursor: pointer;
+  border-radius: 20%;
+  color: white;
+  background: rgb(105, 148, 212);
+  padding: 0.002rem;
+}
+
+/*---------------------*/
+
+.book_name div:nth-of-type(4) > span:nth-of-type(1){
+  float: left;
+  color: rgb(184, 184, 184);
+}
+
+.book_name div:nth-of-type(4) > span:nth-of-type(2){
+  float: right;
+  color: rgb(184, 184, 184);
+}
+
+.slider_select{
+  position: absolute;
+  height: 100%;
+  width: 0.06rem;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: -1;
+  border-top-right-radius: 0.015rem;
+  border-bottom-right-radius: 0.015rem;
+  transition: opacity 0.5s, right 0.5s, z-index 0.5s;
+  opacity: 0;
+  box-shadow: 
+  0.002rem 0.002rem 0.002rem rgb(214, 214, 214);
+}
+
+.slider_select.slider_move{
+  right: calc( -0.06rem * 0.8 );
+  opacity: 1;
+  z-index: 0;
+}
+
+.slider_select > div{
+  width: 80%;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.slider_select > div >div{
+  padding: 0.005rem 0;
+  cursor: pointer;
+  color: rgb(184, 184, 184);
+}
+
+.slider_item:hover{
+  background: rgb(105, 148, 212);
+  color: white;
+}
+
+/*--------------------------*/
+
+.other_books{
+  position: relative;
+  overflow: hidden;
+}
+
+.other_books_card{
+  height: 100%;
+  white-space:nowrap;
+}
+
+.books_select_card{
+  display: inline-block;
+  height: calc(100% - 0.04rem);
+  width: 0.07rem;
+  margin: 0.02rem 0.009rem;
+  position: relative;
+  background: rgb(105, 148, 212);
+  padding: 0.002rem;
+  cursor: pointer;
+}
+
+.books_select_card::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -7%;
+  left: 10%;
+  box-sizing: border-box;
+  border-top: 0.002rem solid rgb(105, 148, 212);
+  border-right: 0.002rem solid rgb(105, 148, 212);
+  background: transparent;
+}
+
+.books_select_card::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: calc(10% + 0.002rem);
+  height: 100%;
+  top: -7%;
+  left: 0;
+  border-left: 0.002rem solid rgb(105, 148, 212);
+  border-top: 0.002rem solid rgb(105, 148, 212);
+  border-top-left-radius: 1rem;
+  background: transparent;
+}
+
+.books_select_card > div:nth-of-type(1){
+  color: #f3c03f;
+  font-weight: 600;
+  font-size: 0.012rem;
+  text-align: center;
+  margin: 0.01rem;
+}
+
+.books_select_card > div:nth-of-type(2){
+  color: rgb(182, 206, 228);
+  font-weight: 200;
+  font-size: 0.001rem;
+  text-align: center;
+}
+
+.books_select_card > div:nth-of-type(3){
+  color: #f8f8f8;
+  font-weight: 300;
+  font-size: 0.005rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.books_select_card > div:nth-of-type(3):not(.books_select_change):hover{
+  color: #f3c03f;
+}
+
+.books_select_change{
+  color: #e4f9ff !important;
+}
+
+/*--------------------------*/
+
+.today_target{
+  height: 0.2rem;
+  margin: 0 0.03rem;
+  border-radius: 0.015rem;
+  box-shadow: 
+  0.001rem 0.002rem 0.005rem rgb(214, 214, 214);
+  padding: 0.02rem 0.02rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.today_target_title{
+  font-size: 0.02rem;
+  display: flex;
+  align-items: center;
+}
+
+.today_target_title::before{
+  margin-right: 0.015rem;
+}
+
+.today_target_title::after{
+  margin-left: 0.015rem;
+}
+
+.today_target_title::after , .today_target_title::before{
+  content: '';
+  width: 0.04rem;
+  height: 0.002rem;
+  background-color: #daa520;
+}
+
+.today_target_words{
+  display: flex;
+}
+
+.today_target_words div div{
+  margin-right: 0.1rem;
+}
+
+.today_target_words div div:nth-of-type(2){
+  font-size: 0.035rem;
+  font-style: italic;
+  color: #daa520;
+}
+
+.today_target_words div div:nth-of-type(2) span{
+  font-size: 0.01rem;
+  color: black;
+}
+
+.start_btn_container{
+  display: flex;
+}
+
+.start_btn{
+  width: 0.15rem;
+  height: 0.028rem;
+  line-height: 0.025rem;
+  background: rgb(6, 64, 173);
+  border-radius: 0.005rem;
+  color: white;
+  text-align: center;
+  font-size: 0.012rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  margin-right: 0.015rem;
+}
+
+.start_btn:hover{
+  background: rgb(2, 49, 136);
+}
+
+.card_two_small{
+  display: none;
+} 
+
+.card_three_small{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 0.15rem;
+  width: calc(50% - 0.06rem);
+  margin: 0.03rem;
+}
+
+.card_three_small .today_target_words div div:nth-of-type(2){
+  font-size: 0.012rem;
+  font-weight: 900;
+}
+
+/*---------------------------*/
+
+.start_area{
+  border-radius: 0.015rem;
+  box-shadow: 0.001rem 0.002rem 0.005rem rgb(214, 214, 214);
+  padding: 0 0.01rem; 
+  margin: 0 0.03rem;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.test_area{
+  width: 50%;
+  height: 100%;
+  transform: translateX(50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: rgb(104, 99, 99);
+}
+
+.test_area_show{
+  transition: transform 0.5s;
+  transform: translateX(0);
+}
+
+.test_word{
+  flex: 5.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.04rem;
+}
+
+.test_select_btn{
+  flex: 8;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.test_select_btn > div{
+  width: 45%;
+  margin: 5% 2%;
+  cursor: pointer;
+  border-radius: 0.005rem;
+  position: relative;
+}
+
+.test_help{
+  display: flex;
+  flex: 1;
+}
+
+.test_help div{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.test_select_btn > div:hover, .test_help div:hover{
+  transition: all 0.3s;
+  background-color: white;
+  color: #daa520;
+}
+
+@keyframes test_btn_click{
+  from{
+    transform: scale(1);
+  }
+  60%{
+    transform: scale(1.08,1.3);
+  }
+  to{
+    transform: scale(1.1,1.4);
+    opacity: 0;
+  }
+}
+
+.test_select_btn > div:active::before , .test_help div:active::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform-origin: center;
+  border: 1.3px solid #daa520;
+  animation: test_btn_click 0.2s ease-in forwards;
+}
+
+.answer_area{
+  width: calc(50% - 0.01rem);
+  height: 100%;
+  position: absolute;
+  right: -50%;
+  top: 0;
+  overflow: auto;
+  text-align: center;
+}
+
+.answer_area_show{
+  transition: right 0.5s;
+  right: 0.01rem;
+}
+
+.answer_area > div{
+  margin: 3% 0;
+  font-size: 0.012rem;
+}
+
+.answer_area img{
+  max-width: 100%;
+}
+/*---------------------------*/

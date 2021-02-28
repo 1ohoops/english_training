@@ -1,0 +1,1 @@
+module.exports = { file_url : 'D:\\danci\\words', user: '', password : '' } //设置单词文件的路径，还有数据库的用户和密码
